@@ -12,6 +12,7 @@ function App() {
   const { buttonValue, setButtonValue } = ButtonStore();
   const [fetchedData, setFetchedData] = useState([]);
   const [clicked, setClicked] = useState(false);
+  const [mode, setMode] = useState(false);
 
   const apiUrl = "http://processlogic.link/example";
 
@@ -37,6 +38,16 @@ function App() {
     }, 500);
   };
 
+  const handleMode = () => {
+    setMode((prevMode) => !prevMode);
+
+    if (document.querySelector("body").dataset.theme === "dark") {
+      document.body.dataset.theme = "light";
+    } else {
+      document.body.dataset.theme = "dark";
+    }
+  };
+
   const today = new Date();
 
   const tHeader = [
@@ -56,6 +67,13 @@ function App() {
       <div className="title">
         <div className="title_text">ZOOM 출결 관리</div>
       </div>
+      <div
+        className={`sunMoon material-icons`}
+        style={{ color: mode ? "#252525" : "white" }}
+        onClick={handleMode}
+      >
+        {mode ? "dark_mode" : "light_mode"}
+      </div>
       <div className="main_body">
         <button
           id={clicked ? "btnAni" : null}
@@ -71,7 +89,7 @@ function App() {
           <thead>
             <tr>
               {tHeader.map((item, index) => (
-                <th id={index}>{item}</th>
+                <th key={index}>{item}</th>
               ))}
             </tr>
           </thead>
@@ -87,7 +105,7 @@ function App() {
                     style={{
                       backgroundColor:
                         v === 1
-                          ? "green"
+                          ? "#00a400"
                           : v === 2
                           ? "gray"
                           : v === 5
@@ -103,6 +121,7 @@ function App() {
           </tbody>
         </table>
       </div>
+      <footer>Made by Y-CPK</footer>
     </div>
   );
 }
