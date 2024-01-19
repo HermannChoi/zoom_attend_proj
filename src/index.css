@@ -28,7 +28,7 @@ body[data-theme="dark"] {
     transform: translate(-50%, -50%);
     color: #0f72ed;
     font-weight: bold;
-    animation: fadeIn 1s;
+    animation: fadeIn 1.5s infinite alternate ease;
   }
 
   @keyframes fadeIn {
