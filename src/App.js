@@ -14,7 +14,7 @@ function App() {
   const [clicked, setClicked] = useState(false);
   const [mode, setMode] = useState(false);
 
-  const apiUrl = "http://processlogic.link/example";
+  const apiUrl = "https://processlogic.link/example";
 
   const fetchData = async () => {
     try {
@@ -82,10 +82,10 @@ function App() {
         >
           {buttonValue}
         </button>
-        <div id={clicked ? "btnAni" : null} className="date">
+        <div id={clicked ? "dateAni" : null} className="date">
           {today.toLocaleString()}
         </div>
-        <table id={clicked ? "tableAni" : null}>
+        <table>
           <thead>
             <tr>
               {tHeader.map((item, index) => (
@@ -105,11 +105,11 @@ function App() {
                     style={{
                       backgroundColor:
                         v === 1
-                          ? "#00a400"
+                          ? "rgb(0 222 0 / 90%)"
                           : v === 2
-                          ? "gray"
+                          ? "rgb(200 200 200 / 90%)"
                           : v === 5
-                          ? "#a1a1a1"
+                          ? "rgb(125 125 125 / 90%)"
                           : null,
                     }}
                   >
