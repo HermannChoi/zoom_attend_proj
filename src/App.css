@@ -136,6 +136,11 @@
   }
 }
 
+.table_container {
+  max-height: 40vh;
+  overflow: scroll !important;
+}
+
 table {
   width: fit-content;
   height: fit-content;
@@ -171,7 +176,7 @@ th:hover {
 
 td {
   width: 70px;
-  height: 30px;
+  /* height: 30px; */
   border: 1px solid white;
   border-radius: 7px;
   font-size: clamp(12px, 1.5vw, 18px);

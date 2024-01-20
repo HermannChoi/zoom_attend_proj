@@ -5,8 +5,8 @@ import axios from "axios";
 import { createColumnHelper, useReactTable } from "@tanstack/react-table";
 
 function App() {
-  const columns = [];
-  const columnHelper = createColumnHelper();
+  // const columns = [];
+  // const columnHelper = createColumnHelper();
   // const table = useReactTable({ columns, data });
 
   const { buttonValue, setButtonValue } = ButtonStore();
@@ -85,41 +85,43 @@ function App() {
         <div id={clicked ? "dateAni" : null} className="date">
           {today.toLocaleString()}
         </div>
-        <table>
-          <thead>
-            <tr>
-              {tHeader.map((item, index) => (
-                <th key={index}>{item}</th>
-              ))}
-            </tr>
-          </thead>
-          <tbody>
-            {fetchedData.map((item, index) => (
+        <div className="table_container">
+          <table>
+            <thead>
               <tr>
-                <td id={index} className="userName">
-                  {item.name}
-                </td>
-
-                {item.checkList.map((v, i) => (
-                  <td
-                    style={{
-                      backgroundColor:
-                        v === 1
-                          ? "rgb(0 222 0 / 90%)"
-                          : v === 2
-                          ? "rgb(200 200 200 / 90%)"
-                          : v === 5
-                          ? "rgb(125 125 125 / 90%)"
-                          : null,
-                    }}
-                  >
-                    {v}
-                  </td>
+                {tHeader.map((item, index) => (
+                  <th key={index}>{item}</th>
                 ))}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {fetchedData.map((item, index) => (
+                <tr>
+                  <td id={index} className="userName">
+                    {item.name}
+                  </td>
+
+                  {item.checkList.map((v) => (
+                    <td
+                      style={{
+                        backgroundColor:
+                          v === 1
+                            ? "rgb(0 222 0 / 90%)"
+                            : v === 2
+                            ? "rgb(200 200 200 / 90%)"
+                            : v === 5
+                            ? "rgb(125 125 125 / 90%)"
+                            : null,
+                      }}
+                    >
+                      {v}
+                    </td>
+                  ))}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
       <footer>Made by Y-CPK</footer>
     </div>
